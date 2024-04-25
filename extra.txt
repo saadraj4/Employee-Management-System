@@ -1,0 +1,13 @@
+1- Keep your program very very simple.
+2- take the employee information using scanner so as soon you close the program it will be gone.
+3- basic interface.
+4- make sure you did all of the operations in the problem section .
+5- the extra section it’s not optional you must do it!
+6- if an employee works for more than 32 hours you should add 2% of the salary for the extra hours.
+7- don’t forget to make the employee ID as key to distinguish between the records.
+8-make sure all of the operations works correctly with all possible options
+For example: if I add an employee with 1234 ID then I add another employee with 1234 ID it will not accept this because we cannot have two employees with the same ID.
+
+
+
+My teacher update me now she told me(The record should be inserted in sorted order, you can use the inserting node in the sorted linked list seen in the lectures.)
