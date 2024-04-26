@@ -19,7 +19,7 @@ public class Main {
             System.out.println("-------------------------------------");
 
             switch (choice) {
-                case 1:
+                case 1 -> {
                     System.out.println("Enter employee details:");
                     System.out.print("Name: ");
                     String name = scanner.nextLine();
@@ -36,22 +36,21 @@ public class Main {
                     int workHours = scanner.nextInt();
                     System.out.print("Salary: ");
                     double salary = scanner.nextDouble();
-
-                    Employee newEmployee = new Employee(name, id, startDate, phoneNumber, address, workHours, salary);
+                    double updatedSalary = recordManager.updateSalary(salary, workHours);
+                    Employee newEmployee = new Employee(name, id, startDate, phoneNumber, address, workHours, updatedSalary);
                     recordManager.insertRecord(newEmployee);
-                    break;
-                case 2:
+                }
+                case 2 -> {
                     System.out.print("Enter ID to delete: ");
                     int deleteId = scanner.nextInt();
                     int result = recordManager.deleteRecord(deleteId);
                     if (result != -1) {
                         System.out.println("Record with ID " + deleteId + " deleted successfully.");
-                    }
-                    else {
+                    } else {
                         System.out.println("Record with ID " + deleteId + " not found.");
                     }
-                    break;
-                case 3:
+                }
+                case 3 -> {
                     System.out.print("Enter ID to update: ");
                     int newId = scanner.nextInt();
                     System.out.println("Enter new details:");
@@ -68,24 +67,22 @@ public class Main {
                     int newWorkHours = scanner.nextInt();
                     System.out.print("Salary: ");
                     double newSalary = scanner.nextDouble();
-
-                    Employee updatedEmployee = new Employee(newName, newId, newStartDate, newPhoneNumber, newAddress, newWorkHours, newSalary);
+                    double newUpdatedSalary = recordManager.updateSalary(newSalary, newWorkHours);
+                    Employee updatedEmployee = new Employee(newName, newId, newStartDate, newPhoneNumber, newAddress, newWorkHours, newUpdatedSalary);
                     recordManager.updateRecord(newId, updatedEmployee);
-                    break;
-                case 4:
+                }
+                case 4 -> {
                     System.out.print("Enter ID to show details: ");
                     int showId = scanner.nextInt();
                     recordManager.searchRecord(showId);
-                    break;
-                case 5:
-                    recordManager.showAllRecords();
-                    break;
-                case 6:
+                }
+                case 5 -> recordManager.showAllRecords();
+                case 6 -> {
                     System.out.println("Exiting...");
                     scanner.close();
                     System.exit(0);
-                default:
-                    System.out.println("Invalid choice. Please try again.");
+                }
+                default -> System.out.println("Invalid choice. Please try again.");
             }
         }
     }

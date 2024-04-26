@@ -1,7 +1,7 @@
 public class EmployeeRecordManager {
     private EmployeeNode head;
 
-    private class EmployeeNode {
+    private static class EmployeeNode {
         Employee employee;
         EmployeeNode next;
 
@@ -76,7 +76,13 @@ public class EmployeeRecordManager {
                 }
     }
 
-
+    public double updateSalary(double salary, int workHours) {
+        if (workHours > 32) {
+            double extraHoursPay = (workHours - 32) * 0.02 * salary;
+            salary += extraHoursPay;
+        }
+        return salary;
+    }
 
     public void searchRecord(int id) {
         EmployeeNode current = head;

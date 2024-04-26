@@ -17,12 +17,6 @@ public class Employee {
         this.salary = salary;
     }
 
-    public void updateSalary() {
-        if (workHours > 32) {
-            double extraHoursPay = (workHours - 32) * 0.02 * salary;
-            salary += extraHoursPay;
-        }
-    }
 
     public String toString() {
         return "ID: " + id + "\nName: " + name + "\nStart Date: " + startDate + "\nPhone Number: " + phoneNumber
