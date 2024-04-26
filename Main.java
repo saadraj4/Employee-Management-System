@@ -1,9 +1,12 @@
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
         EmployeeRecordManager recordManager = new EmployeeRecordManager();
         Scanner scanner = new Scanner(System.in);
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
         while (true) {
             System.out.println("-------------------------------------");
@@ -26,8 +29,15 @@ public class Main {
                     System.out.print("ID: ");
                     int id = scanner.nextInt();
                     scanner.nextLine(); // Consume newline
-                    System.out.print("Start Date: ");
-                    String startDate = scanner.nextLine();
+                    System.out.print("Start Date (yyyy-MM-dd): ");
+                    String startDateStr = scanner.nextLine();
+                    LocalDate startDate;
+                    try {
+                        startDate = LocalDate.parse(startDateStr, dateFormatter);
+                    } catch (Exception e) {
+                        System.out.println("Please Enter date in default format (yyyy-MM-dd)");
+                        return;
+                    }
                     System.out.print("Phone Number: ");
                     String phoneNumber = scanner.nextLine();
                     System.out.print("Address: ");
@@ -57,8 +67,15 @@ public class Main {
                     scanner.nextLine(); // Consume newline
                     System.out.print("Name: ");
                     String newName = scanner.nextLine();
-                    System.out.print("Start Date: ");
-                    String newStartDate = scanner.nextLine();
+                    System.out.print("Start Date (yyyy-MM-dd): ");
+                    String newStartDateStr = scanner.nextLine();
+                    LocalDate newStartDate;
+                    try {
+                        newStartDate = LocalDate.parse(newStartDateStr, dateFormatter);
+                    } catch (Exception e) {
+                        System.out.println("Please Enter date in default format (yyyy-MM-dd)");
+                        return;
+                    }
                     System.out.print("Phone Number: ");
                     String newPhoneNumber = scanner.nextLine();
                     System.out.print("Address: ");
